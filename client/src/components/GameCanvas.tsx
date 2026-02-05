@@ -181,15 +181,15 @@ const GameCanvas: React.FC = () => {
   }, [snake, food, score, gameOver, gameStarted]);
 
   // Handle Game Start/Restart
-  const startGame = () => {
+  const startGame = useCallback(() => {
     setGameStarted(true);
     initializeGame();
-  };
+  }, [initializeGame]);
 
-  const restartGame = () => {
+  const restartGame = useCallback(() => {
     setGameStarted(true);
     initializeGame();
-  };
+  }, [initializeGame]);
 
   // Restart Game on Spacebar (also for initial start)
   useEffect(() => {
